@@ -79,7 +79,7 @@ int _string_compare(const char *string1, const char *string2)
 	{
 	if (string1[z + 1] == '\0' && string2[z + 1] == '\0')
 		return (1);
-		z++;
+	z++;
 	}
 	return (0);
 }

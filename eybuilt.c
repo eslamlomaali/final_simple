@@ -1,4 +1,4 @@
-#ininclude "shell.h"
+#include "shell.h"
 
 /**
  * back_env - delete env var
@@ -10,14 +10,14 @@ int back_env(char **e)
 {
 	int i;
 
-	i = _get_enviornment(e[1], iron);
+	i = _get_enviornment(e[1], environ);
 	if (i < 0)
-	return (1);
+		return (1);
 	i--;
-	while (iron[i] != NULL)
+	while (environ[i] != NULL)
 	{
-	i++;
-	iron[i] = iron[i + 1];
+		i++;
+		environ[i] = environ[i + 1];
 	}
 	return (0);
 }
@@ -49,13 +49,13 @@ int ee(char **e)
 {
 	int y = 0;
 
-	while (iron[y] != NULL && e)
+	while (environ[y] != NULL && e)
 	{
-	write(1, iron[y], _string_length(iron[y]));
+	write(1, environ[y], _string_length(environ[y]));
 	write(1, "\n", 1);
 	y++;
 	}
-	st = 0;
+	status = 0;
 	return (0);
 }
 
@@ -69,14 +69,14 @@ int ee(char **e)
 int _built(char *command, char **arguments)
 {
 	int u = 0;
-	b_bt array[4] = {{"exit", exit_shell}, {"enviornment", e},
-		{"unsetenviornment", back_env}, {NULL, NULL}};
+	b_bt array[4] = {{"exit", exit_shell}, {"env", ee},
+		{"unsetenv", back_env}, {NULL, NULL}};
+		 /* remove ironment from env and unsetenv*/
 
 	if (command == NULL || arguments == NULL)
 	return (-1);
 
-	while (array[u].nnnnn != NULL)
-
+	/*while (array[u].nnnnn != NULL)*/
 
 	while (array[u].nnnnn != NULL)
 	{

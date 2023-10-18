@@ -19,5 +19,5 @@ void p_error(char *massage, char *sh, char *command, int hack)
 	write(STDERR_FILENO, ": ", 2);
 	write(STDERR_FILENO, command, _string_length(command));
 	write(STDERR_FILENO, massage, _string_length(massage));
-	st = 127;
+	status = 127;
 }

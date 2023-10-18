@@ -12,13 +12,13 @@ int is_path_found(char *command, char **arguments)
 {
 	char *q;
 	char *m, *n;
-	int i = 0, r, st, l, w;
+	int i = 0, r, status, l, w;
 
-	r = _get_enviornment("PATH", iron);
+	r = _get_enviornment("PATH", environ);
 	if (r < 0)
 		return (1);
 
-	l = _string_length(iron[r]) - 4;
+	l = _string_length(environ[r]) - 4;
 	if (l == 1)
 		return (1);
 
@@ -26,7 +26,7 @@ int is_path_found(char *command, char **arguments)
 	if (m == NULL)
 		return (1);
 
-	_string_copy(m, iron[r] + 5);
+	_string_copy(m, environ[r] + 5);
 
 	n = m;
 	r = 0;
@@ -41,8 +41,8 @@ int is_path_found(char *command, char **arguments)
 			_string_copy(q, n);
 			_string_concatenate(q, "/");
 			_string_concatenate(q, command);
-			st = access(q, X_OK);
-			if (st == 0)
+			status = access(q, X_OK);
+			if (status == 0)
 			{
 				free(m);
 				sh_execuation(q, arguments);
@@ -57,7 +57,7 @@ int is_path_found(char *command, char **arguments)
 				l -= i;
 				i = 0;
 
-	}
+			}
 		}
 	}
 	free(m);

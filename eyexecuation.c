@@ -15,13 +15,13 @@ void sh_execuation(char *p, char *arguments[])
 
 	if (x == 0)
 	{
-	execve(p, arguments, iron);
+	execve(p, arguments, environ);
 	exit(0);
 	}
 	else
 	{
-	wait(&st);
-	st = st >> 8;
+	wait(&status);
+	status = status >> 8;
 	return;
 	}
 }

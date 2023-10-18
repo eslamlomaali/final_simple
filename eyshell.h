@@ -5,9 +5,11 @@
 #include <string.h>
 #include <unistd.h>
 #include <sys/wait.h>
+#include <sys/types.h>
 #include <fcntl.h>
 #include <signal.h>
 #include <stdio.h>
+#include <errno.h>
 
 /**
  * struct beltins - helper
@@ -21,8 +23,10 @@ typedef struct beltins
 	int (*ppppp)(char **);
 } b_bt;
 
-extern char **iron;
-extern int st;
+extern char **environ;
+extern int status;
+
+/* prototypes */
 int is_access(char *command, char *arguments[]);
 void sh_execuation(char *p, char *arguments[]);
 void p_error(char *massage, char *sh, char *command, int hack);
@@ -38,6 +42,5 @@ int _var_compare(char *variable, char *e);
 int _string_length(const char *c);
 int _string_compare(const char *string1, const char *string2);
 int main(int argc, char *argv[]);
-
 
 #endif
