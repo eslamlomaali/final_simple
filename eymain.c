@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
 {
 	char *ll = NULL;
 	char **tn = NULL;
-	int i = 0, meter, mood, calc = 0;
+	int i = 0, meter, mood, calc = 0, status = 0;
 	size_t val = 0;
 
 	do {
@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
 		if (meter == -1)
 		{
 			free(ll);
-			exit(0); /*edit from 0 to 127 cancelled*/
+			exit(0); /*edit from 0 to 127 cancelled to &statusx*/
 		}
 
 		ll[meter - 1] = '\0';
