@@ -35,7 +35,7 @@ int exit_shell(char **arguments)
 	free(arguments);
 	return (69);
 	}
-	/*added*/
+	/*added exit advanced*/
 	if (arguments[1])
 	{
 		exit(atoi(arguments[1]));
