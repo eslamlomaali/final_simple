@@ -1,4 +1,4 @@
-#include "shell.h"
+#include "eyshell.h"
 
 /**
  * p_error - prints error

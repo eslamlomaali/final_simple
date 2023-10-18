@@ -1,4 +1,4 @@
-#include "shell.h"
+#include "eyshell.h"
 /**
  * _get_enviornment - find an env
  * @variable: name of var

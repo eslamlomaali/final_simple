@@ -1,4 +1,4 @@
-#include "shell.h"
+#include "eyshell.h"
 
 /**
  * is_path_found - finds command in path
